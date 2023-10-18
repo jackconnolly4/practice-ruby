@@ -1,5 +1,5 @@
 class Vehicle
-  def initialize
+  def initialize(input_options)
     @speed = 0
     @direction = 'north'
   end
@@ -19,11 +19,11 @@ end
 
 
 class Car < Vehicle
-  def initialize
+  def initialize(input_options)
     super
     @fuel = 'diesel'
     @make = 'Ford'
-    @model = "F150"
+    @model = input_options[:model]
   end 
   def honk_horn
     puts "Beeeeeeep!"
@@ -31,10 +31,10 @@ class Car < Vehicle
 end
 
 class Bike < Vehicle
-  def initialize
+  def initialize(input_options)
     super
     @type = 'mountain'
-    @weight = 100
+    @weight = input_options[:weight]
   end
   def ring_bell
     puts "Ring ring!"

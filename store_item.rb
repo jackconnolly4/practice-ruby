@@ -5,15 +5,24 @@
 
 #   pp store_inventory[1]
 
-  class Store_items
-    attr_reader :item_name, :color, :price
-    attr_writer :price
-    def initialize(input_item_name, input_color, input_price)
-      @item_name = input_item_name
-      @color = input_color
-      @price = input_price
-    end
+module Food
+  def shelf_life
+    return 30
   end
+end
+
+class Store_items
+  include Food
+  attr_reader :item_name, :color, :price
+  attr_writer :price
+  def initialize(input_item_name, input_color, input_price)
+    @item_name = input_item_name
+    @color = input_color
+    @price = input_price
+  end
+end
+
+
 
   item1 = Store_items.new("bucket", "red", 10)
   item2 = Store_items.new("hose", "green", 20)
@@ -24,3 +33,4 @@
 
   item2.price = 25
   p item2
+
